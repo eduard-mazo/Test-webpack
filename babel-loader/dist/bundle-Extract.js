@@ -105,7 +105,19 @@ eval("// removed by extract-text-webpack-plugin\n\n//# sourceURL=webpack:///./ba
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\n__webpack_require__(/*! ./estilos.css */ \"./babel-loader/estilos.css\");\n\nvar _message = __webpack_require__(/*! ./message.js */ \"./babel-loader/message.js\");\n\nvar _message2 = _interopRequireDefault(_message);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\ndocument.write(_message2.default.firstmessage);\nconsole.log(\"Hello World\");\nconsole.log(\"Hello World\");\n\n//# sourceURL=webpack:///./babel-loader/index.js?");
+eval("\n\n__webpack_require__(/*! ./estilos.css */ \"./babel-loader/estilos.css\");\n\nvar _message = __webpack_require__(/*! ./message.js */ \"./babel-loader/message.js\");\n\nvar _message2 = _interopRequireDefault(_message);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\ndocument.write(_message2.default.firstmessage);\n_message2.default.delayedMessage();\n\n//# sourceURL=webpack:///./babel-loader/index.js?");
+
+/***/ }),
+
+/***/ "./babel-loader/make-message.js":
+/*!**************************************!*\
+  !*** ./babel-loader/make-message.js ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nfunction makeMessage(msg) {\n  var element = document.createElement(\"p\");\n  element.textContent = msg;\n  return element;\n}\n\nexports.default = makeMessage;\n\n//# sourceURL=webpack:///./babel-loader/make-message.js?");
 
 /***/ }),
 
@@ -117,7 +129,19 @@ eval("\n\n__webpack_require__(/*! ./estilos.css */ \"./babel-loader/estilos.css\
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nmodule.exports = {\n  firstmessage: \"I miss you spider\"\n};\n\n//# sourceURL=webpack:///./babel-loader/message.js?");
+eval("\n\nvar _renderToDOM = __webpack_require__(/*! ./render-to-DOM */ \"./babel-loader/render-to-DOM.js\");\n\nvar _renderToDOM2 = _interopRequireDefault(_renderToDOM);\n\nvar _makeMessage = __webpack_require__(/*! ./make-message */ \"./babel-loader/make-message.js\");\n\nvar _makeMessage2 = _interopRequireDefault(_makeMessage);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar waitTime = new Promise(function (AllOk, AllBad) {\n  setTimeout(function () {\n    AllOk(\"Hello from delay\");\n  }, 3000);\n});\n\nmodule.exports = {\n  firstmessage: \"I miss you spider\",\n  delayedMessage: async function delayedMessage() {\n    var message = await waitTime;\n    console.log(message);\n    (0, _renderToDOM2.default)((0, _makeMessage2.default)(message));\n  }\n};\n\n//# sourceURL=webpack:///./babel-loader/message.js?");
+
+/***/ }),
+
+/***/ "./babel-loader/render-to-DOM.js":
+/*!***************************************!*\
+  !*** ./babel-loader/render-to-DOM.js ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nmodule.exports = function RenderToDOM(element) {\n  document.body.append(element);\n};\n\n//# sourceURL=webpack:///./babel-loader/render-to-DOM.js?");
 
 /***/ })
 
