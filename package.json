@@ -10,7 +10,7 @@
     "build:external": "webpack --config ./external/webpack.config.js",
     "build:css": "webpack --config ./css-style-loader/webpack.config.js",
     "build:extract:css": "webpack --config ./plugin-extract-text/webpack.config.js",
-    "build:url": "webpack --config ./url-loader-images/webpack.config.js"
+    "build:font": "webpack --config ./url-loader-fonts/webpack.config.js"
   },
   "repository": {
     "type": "git",

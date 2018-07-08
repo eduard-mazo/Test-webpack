@@ -1,6 +1,6 @@
-import "./estilos.css";
+import "../css/estilos.css";
 import message from "./message.js";
-import platzi from "./platzi.png";
+import platzi from "../images/platzi.png";
 
 const img = document.createElement("img");
 img.setAttribute("src", platzi);

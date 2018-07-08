@@ -1,7 +1,7 @@
 const path = require("path");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 module.exports = {
-  entry: path.resolve(__dirname, "index.js"),
+  entry: path.resolve(__dirname, "src/js/index.js"),
   mode: "development",
   output: {
     path: path.resolve(__dirname, "dist"),
@@ -10,13 +10,10 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(png|jpg|gif)$/,
+        test: /\.(png|jpg|gif|woff|eot|ttf|svg)$/,
         use: [
           {
-            loader: "url-loader",
-            options: {
-              limit: 100000
-            }
+            loader: "url-loader"
           }
         ]
       },
