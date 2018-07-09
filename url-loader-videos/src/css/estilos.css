@@ -1,0 +1,23 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: lightblue;
+  height: 100vh;
+  margin: 0;
+  font-size: 70px;
+  flex-direction: column;
+  font-family: "advent_proregular";
+}
+@font-face {
+  font-family: "advent_proregular";
+  src: url("../fonts/adventpro-regular-webfont.eot");
+  src: url("../fonts/adventpro-regular-webfont.eot?#iefix")
+      format("embedded-opentype"),
+    url("../fonts/adventpro-regular-webfont.woff") format("woff"),
+    url("../fonts/adventpro-regular-webfont.ttf") format("truetype"),
+    url("../fonts/adventpro-regular-webfont.svg#advent_proregular")
+      format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
