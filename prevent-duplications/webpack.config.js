@@ -1,9 +1,10 @@
 const path = require("path");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
-const webpack = require("webpack");
+//const webpack = require("webpack");
 
 module.exports = {
   entry: {
+    vendor: ["react", "react-dom"],
     home: path.resolve(__dirname, "src/js/index.js"),
     contact: path.resolve(__dirname, "src/js/contact.js")
   },
@@ -11,6 +12,7 @@ module.exports = {
     path: path.resolve(__dirname, "dist"),
     filename: "[name].js"
   },
+  mode: "development",
   module: {
     rules: [
       // Aquí van los loaders
@@ -24,10 +26,6 @@ module.exports = {
             presets: ["es2015", "react"]
           }
         }
-      },
-      {
-        test: /\.json$/,
-        use: "json-loader"
       },
       {
         test: /\.(jpg|png|gif|woff|eot|ttf|svg)$/,
@@ -109,16 +107,16 @@ module.exports = {
       }
     ]
   },
-  optimization: {
-    splitChunks: {
-      cacheGroups: {
-        commons: {
-          name: "commons",
-          chunks: "initial"
-        }
-      }
-    }
-  },
+  // optimization: {
+  //   splitChunks: {
+  //     cacheGroups: {
+  //       commons: {
+  //         name: "commons",
+  //         chunks: "initial"
+  //       }
+  //     }
+  //   }
+  // },
   plugins: [
     // aquí van los plugins
     new ExtractTextPlugin("css/[name].css")
@@ -133,6 +131,12 @@ module.exports = {
           name: "commons",
           chunks: "initial",
           minChunks: 2
+        },
+        vendor: {
+          chunks: "initial",
+          name: "vendor",
+          test: "vendor",
+          enforce: true
         }
       }
     }
